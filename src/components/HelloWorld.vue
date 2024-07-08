@@ -1,4 +1,37 @@
+<template>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="12" sm="8" md="6">
+        <v-card>
+          <v-card-title>Convex Counter</v-card-title>
+          <v-card-text>
+            <p>Count: {{ count }}</p>
+            <v-btn @click="incrementCount" color="primary">Increment</v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
 <script setup>
+import { ref, onMounted } from 'vue';
+import { useQuery, useMutation } from '../convex/_generated/vue';
+
+const count = ref(0);
+const getCount = useQuery("counter:getCount");
+const increment = useMutation("counter:increment");
+
+onMounted(async () => {
+  count.value = await getCount();
+});
+
+const incrementCount = async () => {
+  count.value = await increment();
+};
+</script>
+
+<!-- <script setup>
 import { ref } from 'vue'
 
 defineProps({
@@ -6,9 +39,9 @@ defineProps({
 })
 
 const count = ref(0)
-</script>
+</script> -->
 
-<template>
+<!-- <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
@@ -34,7 +67,7 @@ const count = ref(0)
     >.
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
-</template>
+</template> -->
 
 <style scoped>
 .read-the-docs {
