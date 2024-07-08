@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useQuery, useMutation } from '../convex/_generated/vue';
+import { useQuery, useMutation } from '@convex-vue/core';
 
 const count = ref(0);
 const getCount = useQuery("counter:getCount");
