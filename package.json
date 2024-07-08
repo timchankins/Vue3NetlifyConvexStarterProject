@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@convex-vue/core": "^0.0.4",
+    "@vueuse/core": "^10.11.0",
+    "convex": "^1.13.0",
     "vue": "^3.4.29"
   },
   "devDependencies": {
