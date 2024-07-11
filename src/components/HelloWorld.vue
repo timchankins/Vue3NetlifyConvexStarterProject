@@ -16,18 +16,18 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useConvexAuth, useQuery, useMutation } from '@convex-vue/core';
+import { useConvexClient } from '../composables/useConvexClient';
+import { api } from '../convex/_generated/api';
 
 const count = ref(0);
-const getCount = useQuery("counter:getCount");
-const increment = useMutation("counter:increment");
+const { client } = useConvexClient();
 
 onMounted(async () => {
-  count.value = await getCount();
+  count.value = await client.query(api.counter.getCount);
 });
 
 const incrementCount = async () => {
-  count.value = await increment();
+  count.value = await client.mutation(api.counter.increment);
 };
 </script>
 

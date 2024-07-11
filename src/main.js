@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import { ConvexClientProvider, ConvexReactClient } from '@convex-vue/core'
+import App from './App.vue';
+import vuetify from './plugins/vuetify';
+import { ConvexClient } from 'convex/browser';
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL)
+const convex = new ConvexClient(import.meta.env.VITE_CONVEX_URL);
 
-createApp(App)
-  .use(vuetify)
-  .use(ConvexClientProvider, { client: convex })
-  .mount('#app')
+const app = createApp(App);
+app.use(vuetify);
+app.provide('convex', convex);
+app.mount('#app');
