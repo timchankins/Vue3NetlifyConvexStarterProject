@@ -12,7 +12,8 @@
     "@convex-vue/core": "^0.0.4",
     "@vueuse/core": "^10.11.0",
     "convex": "^1.13.0",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vuetify": "^3.6.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
