@@ -14,10 +14,10 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useConvexClient } from '../composables/useConvexClient';
-import { api } from '../convex/_generated/api';
+import { api } from '../../convex/_generated/api';
 
 const count = ref(0);
 const { client } = useConvexClient();
