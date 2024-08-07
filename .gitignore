@@ -28,3 +28,4 @@ dist-ssr
 
 # Convex directories and files
 .env
+.env.development
